@@ -13,6 +13,7 @@ namespace AutomatyzacjaZima2019
             // arrange
             var a = 1;
             var b = 2;
+            
             // act
             var result = Function(a, b);
 
