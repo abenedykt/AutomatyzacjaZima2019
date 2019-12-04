@@ -1,4 +1,4 @@
-﻿namespace PageObjectsExample
+﻿namespace PageObjectsExample.Domain
 {
     internal class ExampleComment
     {

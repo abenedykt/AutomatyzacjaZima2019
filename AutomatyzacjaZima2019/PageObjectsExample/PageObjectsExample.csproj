@@ -38,6 +38,9 @@
     <Reference Include="Faker.NET47, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Faker.Net.1.1.1\lib\net471\Faker.NET47.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -64,12 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AdminPage.cs" />
+    <Compile Include="Pages\AdminPanelPage.cs" />
+    <Compile Include="Pages\Abstract\BasePage.cs" />
+    <Compile Include="Abstract\BaseTest.cs" />
     <Compile Include="CommentTests.cs" />
-    <Compile Include="DriverFactory.cs" />
-    <Compile Include="ExampleComment.cs" />
-    <Compile Include="MainPage.cs" />
-    <Compile Include="NotePage.cs" />
+    <Compile Include="Domain\DriverFactory.cs" />
+    <Compile Include="Domain\ExampleComment.cs" />
+    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\NewNotePage.cs" />
+    <Compile Include="Pages\NotePage.cs" />
+    <Compile Include="NoteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\TestNote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

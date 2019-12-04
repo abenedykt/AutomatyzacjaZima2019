@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace PageObjectsExample
+namespace PageObjectsExample.Domain
 {
     public class DriverFactory
     {
@@ -9,7 +9,7 @@ namespace PageObjectsExample
         {
             var driver = new ChromeDriver();
 
-            //driver.Manage().Window.Maximize();
+            driver.Manage().Window.Maximize();
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             return driver;
