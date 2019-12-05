@@ -14,10 +14,10 @@ namespace PageObjectsExample.Pages.Abstract
             this.browser = browser;
         }
 
-        protected IWebElement WaitForClickable(By by, int seconds = 10)
+        protected IWebElement WaitForClickable(By selector, int seconds = 10)
         {
             var wait = new WebDriverWait(browser, TimeSpan.FromSeconds(seconds));
-            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(by));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(selector));
         }
         protected IWebElement WaitForClickable(IWebElement element, int seconds = 10)
         {   
@@ -34,14 +34,6 @@ namespace PageObjectsExample.Pages.Abstract
             Actions builder = new Actions(browser);
             Actions moveTo = builder.MoveToElement(element);
             moveTo.Build().Perform();
-        }
-
-        internal void ScrollToElement(By selector)
-        {
-            IWebElement element = browser.FindElement(selector);
-            Actions actions = new Actions(browser);
-            actions.MoveToElement(element);
-            actions.Perform();
         }
     }
 }

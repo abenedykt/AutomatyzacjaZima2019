@@ -12,16 +12,29 @@ namespace PageObjectsExample.Pages
             browser.Navigate().GoToUrl(ADMIN_PAGE_BASE_URL);
         }
 
-        internal AdminPanelPage Login(string userName, string password)
+        public AdminPanelPage Login(string userName, string password)
         {
-            WaitForClickable(By.Id("user_login")).SendKeys(userName);
-
-            WaitForClickable(By.Id("user_pass")).SendKeys(password);
-
-            WaitForClickable(By.Id("wp-submit")).Click();
-
+            InsertUserName(userName);
+            InsertPassword(password);
+            ClickLoginButton();
 
             return new AdminPanelPage(browser);
+        }
+
+        private void ClickLoginButton()
+        {
+            WaitForClickable(By.Id("wp-submit")).Click();
+        }
+
+        private void InsertPassword(string password)
+        {
+            WaitForClickable(By.Id("user_pass")).SendKeys(password);
+        }
+
+        private void InsertUserName(string userName)
+        {
+            WaitForClickable(By.Id("user_login"));
+            browser.FindElement(By.Id("user_login")).SendKeys(userName);
         }
 
         internal static AdminPage Open(IWebDriver webDriver)

@@ -10,15 +10,21 @@ namespace PageObjectsExample
         [Fact]
         public void Can_publish_new_note()
         {
+            // arrange
             var testNote = new TestNote();
-            var adminLogin = AdminPage.Open(GetBrowser());
-            var adminPanel = adminLogin.Login("automatyzacja", "auto@Zima2019");
-            var newNotePage = adminPanel.OpenNewNote();
+
+            var adminLoginPage = AdminPage.Open(GetBrowser());
+            var adminPanelPage = adminLoginPage.Login("automatyzacja", "auto@Zima2019");
+            var newNotePage = adminPanelPage.OpenNewNote();
+
+            // act
             var newNoteUrl = newNotePage.CreateNote(testNote);
 
-            var newNote = NotePage.Open(GetBrowser(), newNoteUrl);
+            // tu powinno być wylogowanie :)
+            var newlyCreatedNotePage = NotePage.Open(GetBrowser(), newNoteUrl);
 
-            Assert.True(newNote.Has(testNote));
+            // assert
+            Assert.True(newlyCreatedNotePage.Has(testNote));
         }
     }
 }
