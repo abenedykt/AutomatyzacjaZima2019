@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FunctionsExample.cs" />
     <Compile Include="Pages\AdminPage.cs" />
     <Compile Include="Pages\AdminPanelPage.cs" />
     <Compile Include="Pages\Abstract\BasePage.cs" />
