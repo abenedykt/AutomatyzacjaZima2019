@@ -70,5 +70,12 @@ namespace PageObjectsExample.Pages
             var titleElement = browser.FindElement(By.Id("title"));
             titleElement.SendKeys(testNote.Title);
         }
+
+
+
+
+
+
+
     }
 }
