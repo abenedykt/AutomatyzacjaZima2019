@@ -14,17 +14,11 @@ namespace PageObjectsExample.Pages
 
         internal AdminPanelPage Login(string userName, string password)
         {
-            WaitForClickable(By.Id("user_login"), 5);
-            var userLogin = browser.FindElement(By.Id("user_login"));
-            userLogin.SendKeys(userName);
+            WaitForClickable(By.Id("user_login")).SendKeys(userName);
 
-            WaitForClickable(By.Id("user_pass"), 5);
-            var passwordElement = browser.FindElement(By.Id("user_pass"));
-            passwordElement.SendKeys(password);
+            WaitForClickable(By.Id("user_pass")).SendKeys(password);
 
-            WaitForClickable(By.Id("wp-submit"), 5);
-            var login = browser.FindElement(By.Id("wp-submit"));
-            login.Click();
+            WaitForClickable(By.Id("wp-submit")).Click();
 
 
             return new AdminPanelPage(browser);

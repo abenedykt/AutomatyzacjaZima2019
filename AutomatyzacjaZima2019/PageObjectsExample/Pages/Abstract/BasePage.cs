@@ -14,15 +14,15 @@ namespace PageObjectsExample.Pages.Abstract
             this.browser = browser;
         }
 
-        protected void WaitForClickable(By by, int seconds)
+        protected IWebElement WaitForClickable(By by, int seconds = 10)
         {
             var wait = new WebDriverWait(browser, TimeSpan.FromSeconds(seconds));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(by));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(by));
         }
-        protected void WaitForClickable(IWebElement element, int seconds)
-        {
+        protected IWebElement WaitForClickable(IWebElement element, int seconds = 10)
+        {   
             var wait = new WebDriverWait(browser, TimeSpan.FromSeconds(seconds));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
         }
         protected void MoveToElement(By selector)
         {
