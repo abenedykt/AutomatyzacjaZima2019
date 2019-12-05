@@ -13,14 +13,14 @@ namespace PageObjectsExample
             // arrange
             var testNote = new TestNote();
 
-            var adminLoginPage = AdminPage.Open(GetBrowser());
+            var adminLoginPage = LoginPage.Open(GetBrowser());
             var adminPanelPage = adminLoginPage.Login("automatyzacja", "auto@Zima2019");
             var newNotePage = adminPanelPage.OpenNewNote();
 
             // act
             var newNoteUrl = newNotePage.CreateNote(testNote);
 
-            // tu powinno być wylogowanie :)
+            newNotePage.Logout();
             var newlyCreatedNotePage = NotePage.Open(GetBrowser(), newNoteUrl);
 
             // assert

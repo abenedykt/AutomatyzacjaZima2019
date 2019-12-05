@@ -26,6 +26,13 @@ namespace PageObjectsExample.Pages
             return new Uri(url);
         }
 
+        internal void Logout()
+        {
+            MoveToElement(By.Id("wp-admin-bar-my-account"));
+
+            WaitForClickable(By.Id("wp-admin-bar-logout")).Click();
+        }
+
         private string GetNewNoteUrl()
         {
             var postUrl = browser.FindElement(By.CssSelector("#sample-permalink > a"));

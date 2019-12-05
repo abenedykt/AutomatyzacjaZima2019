@@ -3,11 +3,11 @@ using PageObjectsExample.Pages.Abstract;
 
 namespace PageObjectsExample.Pages
 {
-    internal class AdminPage : BasePage
+    internal class LoginPage : BasePage
     {
         private const string ADMIN_PAGE_BASE_URL = "https://automatyzacja.benedykt.net/wp-admin";
 
-        public AdminPage(IWebDriver webDriver): base(webDriver)
+        public LoginPage(IWebDriver webDriver): base(webDriver)
         {
             browser.Navigate().GoToUrl(ADMIN_PAGE_BASE_URL);
         }
@@ -37,9 +37,9 @@ namespace PageObjectsExample.Pages
             browser.FindElement(By.Id("user_login")).SendKeys(userName);
         }
 
-        internal static AdminPage Open(IWebDriver webDriver)
+        internal static LoginPage Open(IWebDriver webDriver)
         {
-            return new AdminPage(webDriver);
+            return new LoginPage(webDriver);
         }
     }
 }
